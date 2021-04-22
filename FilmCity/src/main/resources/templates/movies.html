@@ -1,12 +1,18 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <title>movies</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
-	<h1 class="display-2" style="text-align:center; background:#1abc9c; color:white; padding:40px" >FilmCity</h1>	
+	<h1 class="display-2" style="text-align:center; background:#1abc9c; color:white; padding:40px" >FilmCity</h1>
+	<div>
+	<form th:action="@{/logout}" method="post">
+ 		<input type="submit" value="Sign Out"/>
+	</form>
+	
+	</div>	
 	<h1>Movies</h1>
 	<table class="table table-striped">
 		<tr>
@@ -25,8 +31,8 @@
 			<td th:text="${movie.year}">Year</td>
 			<td th:text="${movie.imdb}">IMDb</td>
 			<td th:text="${movie.price}">Price per day</td>
-			<td><a th:href="@{/delete/{id}(id=${movie.id})}"> <button class="btn btn-danger">Delete </button></a></td>
-			<td><a th:href="@{/edit/{id}(id=${movie.id})}">Edit</a></td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${movie.id})}"><button class="btn btn-danger">Delete </button></a></td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${movie.id})}">Edit</a></td>
 		</tr>
 	</table>
 	<a href="/addmovie"><button class="btn btn-success">Add movie </button></a>

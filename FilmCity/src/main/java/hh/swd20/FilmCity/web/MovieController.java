@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -57,12 +58,16 @@ public class MovieController {
 
 		
 		@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+		@PreAuthorize("hasAuthority('ADMIN')")
+		
 		public String deleteMovie(@PathVariable("id") Long id) {
 			movieRepository.deleteById(id);
 			return "redirect:../movies";
 		}
 		
 		@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+		@PreAuthorize("hasAuthority('ADMIN')")
+		
 		public String editMovie(@PathVariable("id") Long id, Model model) {
 			model.addAttribute("movie", movieRepository.findById(id).get());
 			model.addAttribute("genres", genreRepository.findAll());

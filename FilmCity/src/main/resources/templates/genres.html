@@ -1,11 +1,17 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <title>Genres</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
+<div>
+	<form th:action="@{/logout}" method="post">
+ 		<input type="submit" value="Sign Out"/>
+	</form>
+	
+	</div>	
 	<h1>Genres</h1>
 
 	<div th:each = "genre : ${genres}">
