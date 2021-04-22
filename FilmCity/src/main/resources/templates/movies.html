@@ -7,6 +7,7 @@
 </head>
 <body>
 	<h1 class="display-2" style="text-align:center; background:#1abc9c; color:white; padding:40px" >FilmCity</h1>
+	<h5 th:inline="text">Signed in as [[${#httpServletRequest.remoteUser}]]</h5>
 	<div>
 	<form th:action="@{/logout}" method="post">
  		<input type="submit" value="Sign Out"/>
