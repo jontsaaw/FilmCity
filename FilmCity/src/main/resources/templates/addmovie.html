@@ -10,7 +10,7 @@
 	<h5 th:inline="text">Signed in as [[${#httpServletRequest.remoteUser}]]</h5>
 <div>
 	<form th:action="@{/logout}" method="post">
- 		<input type="submit" value="Sign Out"/>
+ 		<input type="submit" value="Sign Out" class="btn btn-danger"/>
 	</form>
 	
 	</div>	
@@ -28,7 +28,7 @@
         </select>
     <br>
     <br>
-	<input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+	<input type="submit" value="Submit" class="btn btn-success" /> <input type="reset" value="Reset" class="btn btn-danger" />
 	</form>
     
 </body>
