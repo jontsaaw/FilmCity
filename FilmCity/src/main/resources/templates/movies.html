@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>movies</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1 class="display-2" style="text-align:center; background:#1abc9c; color:white; padding:40px" >FilmCity</h1>	
+	<h1>Movies</h1>
+	<table class="table table-striped">
+		<tr>
+			
+			
+			<th>Title</th>
+			<th>Genre</th>
+			<th>Year</th>
+			<th>IMDb rating</th>
+			<th>Price per day</th>
+		</tr>
+
+		<tr th:each="movie : ${movies}">
+			<td th:text="${movie.title}">Title</td>
+			<td th:text="${movie.genre}">Genre</td>
+			<td th:text="${movie.year}">Year</td>
+			<td th:text="${movie.imdb}">IMDb</td>
+			<td th:text="${movie.price}">Price per day</td>
+			<td><a th:href="@{/delete/{id}(id=${movie.id})}"> <button class="btn btn-danger">Delete </button></a></td>
+			<td><a th:href="@{/edit/{id}(id=${movie.id})}">Edit</a></td>
+		</tr>
+	</table>
+	<a href="/addmovie"><button class="btn btn-success">Add movie </button></a>
+	<a href="/genrelist"><button class="btn btn-success">Genres</button></a>
+
+</body>
+</html>

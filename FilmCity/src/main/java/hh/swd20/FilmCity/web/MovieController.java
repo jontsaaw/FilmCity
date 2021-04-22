@@ -83,4 +83,9 @@ public class MovieController {
 	    public @ResponseBody Movie saveMovieRest(@RequestBody Movie movie) {	
 	    	return movieRepository.save(movie);
 	    }
+		
+		@RequestMapping(value="/login")
+		public String login() {
+			return "login";
+		}    
 	}
