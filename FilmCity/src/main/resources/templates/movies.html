@@ -32,8 +32,8 @@
 			<td th:text="${movie.year}">Year</td>
 			<td th:text="${movie.imdb}">IMDb</td>
 			<td th:text="${movie.price}">Price per day</td>
-			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${movie.id})}"><button class="btn btn-danger">Delete </button></a></td>
-			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${movie.id})}">Edit</a></td>
+			<td sec:authorize="hasRole('ADMIN')"><a th:href="@{/delete/{id}(id=${movie.id})}"><button class="btn btn-danger">Delete </button></a></td>
+			<td sec:authorize="hasRole('ADMIN')"><a th:href="@{/edit/{id}(id=${movie.id})}">Edit</a></td>
 		</tr>
 	</table>
 	<a href="/addmovie"><button class="btn btn-success">Add movie </button></a>

@@ -58,7 +58,7 @@ public class MovieController {
 
 		
 		@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-		@PreAuthorize("hasAuthority('ADMIN')")
+		@PreAuthorize("hasRole('ADMIN')")
 		
 		public String deleteMovie(@PathVariable("id") Long id) {
 			movieRepository.deleteById(id);
@@ -66,7 +66,7 @@ public class MovieController {
 		}
 		
 		@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-		@PreAuthorize("hasAuthority('ADMIN')")
+		@PreAuthorize("hasRole('ADMIN')")
 		
 		public String editMovie(@PathVariable("id") Long id, Model model) {
 			model.addAttribute("movie", movieRepository.findById(id).get());
