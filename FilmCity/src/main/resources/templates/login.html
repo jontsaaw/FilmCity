@@ -3,15 +3,18 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     <head>
         <title>Spring Security Example </title>
-    </head>
-    <body>
-        <div th:if="${param.error}">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1 class="display-2" style="text-align:center; background:#1abc9c; color:white; padding:40px" >FilmCity</h1>
+        <div th:if="${param.error}" style="text-align: center">
             Invalid username and password.
         </div>
-        <div th:if="${param.logout}">
+        <div th:if="${param.logout}" style="text-align: center">
             You have been logged out.
         </div>
-        <form th:action="@{/login}" method="post">
+        <form th:action="@{/login}" method="post" style="text-align: center">
             <div><label> User Name : <input type="text" name="username"/> </label></div>
             <div><label> Password: <input type="password" name="password"/> </label></div>
             <div><input type="submit" value="Sign In"/></div>
