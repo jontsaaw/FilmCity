@@ -26,11 +26,12 @@ public class FilmCityApplication {
 		Genre genre1 = new Genre("Comedy");
 		Genre genre2 = new Genre("Horror");
 		Genre genre3 = new Genre("Action");
+		Genre genre4 = new Genre("Musical");
 		
 		genreRepository.save(genre1);
 		genreRepository.save(genre2);
 		genreRepository.save(genre3);
-	
+		genreRepository.save(genre4);
 		
 
 		
@@ -44,9 +45,11 @@ public class FilmCityApplication {
 		
 		Movie movie1 = new Movie("Game Night", 3.59, 2018, 6.9, genre1);
 		Movie movie2 = new Movie("Get Out", 2.99, 2017, 7.7, genre2);
+		Movie movie3 = new Movie("Dreamgirls", 1.90, 2006, 6.5, genre4);
 		
 		movieRepository.save(movie1);
 		movieRepository.save(movie2);	
+		movieRepository.save(movie3);
 		
 
 		log.info("fetch all movies");
